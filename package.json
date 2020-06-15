@@ -1,0 +1,20 @@
+{
+  "name": "word-definition",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --config build/webpack.config.js",
+    "dev": "npm run build && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paul.roussel.dev@gmail.com",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
