@@ -13,7 +13,7 @@ var ask_for_rematch = function(client, message) {
             game['player_nb'] +
             " joueurs !\nLe mot a définir est `" + game['word'] +
             "`.";
-    message.channel.send(text);
+        message.channel.send(text);
         return true;
     }
     message.channel.send("Rejouer ? (O/N)");

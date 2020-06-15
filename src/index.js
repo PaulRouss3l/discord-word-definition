@@ -7,7 +7,7 @@ const Game = require('./game/index.js');
 // Initialize Discord Bot
 var client = new Discord.Client();
 
-client.on('ready',  () => {
+client.on('ready', () => {
     console.log('Connected');
 });
 
