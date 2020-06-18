@@ -16,5 +16,7 @@ const command = function(client, message) {
 };
 
 module.exports = {
-	command: command,
+	command: '!word-definition',
+	help: 'Commence une partie.',
+	action: command,
 };

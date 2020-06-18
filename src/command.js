@@ -1,24 +1,18 @@
-const create_game = require('./command/game.js');
-const rules = require('./command/rules.js');
-const next_word = require('./command/next_word.js');
+const Utils = require('./utils.js');
 
-/*  */
-const command_list = {
-	'word-definition': create_game,
-	'rules': rules,
-	'next_word': next_word,
-};
+const command_list = Utils.get_all_commands('./src/command/', './command/');
 
 module.exports.check_command = function check_command(client, message) {
 	const text = message.content;
 	if (text.substring(0, 1) == '!') {
-		const args = text.substring(1).split(' ');
+		const args = text.split(' ');
 		const cmd = args[0];
 
-		if (cmd in command_list) {
-			const functor = command_list[cmd].command;
-			return functor(client, message);
-		}
+		return command_list.filter((command) => {
+			return command.command == cmd;
+		}).reduce((acc, command) => {
+			return acc || command.action(client, message);
+		}, false);
 	}
 	return null;
 };

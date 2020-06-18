@@ -1,4 +1,4 @@
-const rules = function(client, message) {
+const command = function(client, message) {
 	const text = 'World definition est un jeu dans lequel il faut inventer la définition d\'un mot inconnu.\n' +
     'Une fois que chaque joueur a proposé une définition, tout le monde vote pour la définition qu\'il trouve la plus plausible.\n' +
     'Si vous trouvez la bonne définition, vous marquez un point, sinon le point revient a l\'auteur de la définition.\n' +
@@ -9,5 +9,7 @@ const rules = function(client, message) {
 };
 
 module.exports = {
-	command: rules,
+	command: '!rules',
+	help: 'Affiche les règles.',
+	action: command,
 };
