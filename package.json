@@ -1,13 +1,22 @@
 {
   "name": "word-definition",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "description": "A discord Bot that allow to play a dixit like game.",
+  "main": "src/index.js",
   "scripts": {
-    "build": "webpack --config build/webpack.config.js",
-    "dev": "npm run build && node dist/index.js",
+    "dev": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulRouss3l/discord-word-definition.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "node",
+    "discordapp"
+  ],
   "author": "paul.roussel.dev@gmail.com",
   "dependencies": {
     "discord.js": "^12.2.0"
