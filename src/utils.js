@@ -6,9 +6,6 @@ const _collectExports = function(file, prefix = './') {
 	let func, include, _results;
 
 	if (path.extname(file) === '.js' && file !== 'index.js') {
-		if (file == 'help.js') {
-			return ;
-		}
 		include = require(prefix + file);
 		_results = {};
 		for (func in include) {
@@ -23,6 +20,7 @@ module.exports.get_all_commands = function(file, prefix = './') {
 	fs.readdirSync(file).forEach((f) => {
 		cmd_list.push(_collectExports(f, prefix));
 	});
+	// add !help command
 	cmd_list.push({
 		command: '!help',
 		help: 'Affiche l\'aide.',

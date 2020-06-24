@@ -6,11 +6,13 @@ const check_write_submission = async function(client, message) {
 	if (game.state !== 'write') {
 		return false;
 	}
-	const guess = message.content;
+	let guess = message.content.split(' ');
+	guess.shift();
+	guess = guess.join(' ');
 	const user = message.author;
 	await message.delete().then(msg => {
 		const text = message.author.username + ', ta définition est enregistrée.';
-		console.log(`submission from ${msg.author.username} : ${msg.content}.`);
+		console.log(`submission from ${msg.author.username} : ${guess}.`);
 		msg.channel.send(text);
 	}).catch(console.error);
 	game.submissions[user.id] = guess;

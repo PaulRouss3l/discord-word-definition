@@ -43,14 +43,17 @@ const start_vote = function(client, message) {
 };
 
 const check_vote_submission = async function(client, message) {
-
 	const game = Model.get_game(message.channel.id);
-	let vote = parseInt(message.content, 10);
+
+	let vote = message.content.split(' ');
+	vote.shift();
+	vote = parseInt(vote.join(' '), 10);
+
 	if (!(vote > 0 && vote <= game.player_nb + 1)) {
 		return false;
 	}
 	await message.delete().then(msg => {
-		console.log(`vote from ${msg.author.username} : ${msg.content}.`);
+		console.log(`vote from ${msg.author.username} : ${vote}.`);
 	}).catch(console.error);
 
 	// has already voted ?
@@ -68,7 +71,6 @@ const check_vote_submission = async function(client, message) {
 		message.channel.send(`${message.author.username}, on ne vote pas pour soi même !`);
 		return false;
 	}
-
 
 	const text = message.author.username + ', ton vote est enregistrée.';
 	message.channel.send(text);
